@@ -14,7 +14,7 @@ class SmartSpider(scrapy.Spider):
         links = response.xpath('//a[contains(@href, "/itm/")]/@href').extract()
         #if the linked is visited, pass, if not, visit the link and parse out info using parse_indi.
         for link in links:
-            url = hashlib.md5(str(link).encode('utf-8')).hexidigest()
+            url = hashlib.md5(str(link).encode('utf-8')).hexdigest()
             if url in SmartSpider.url_set:
                 pass
             else:
